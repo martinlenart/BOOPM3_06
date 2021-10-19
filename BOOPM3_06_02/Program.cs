@@ -37,6 +37,6 @@ namespace BOOPM3_06_02
 
     //Exercises
     //1.    Modify above code to allow only T as a type of class.
-    //2.    Create your own instance of class type and a record type. Use them to close Stack<T>. Test and printout result showing Pop() result
+    //2.    Create your own instance of class type (For example Chef). Use them to close Stack<T>. Test and printout result showing Pop() result
     //3.    Add a constraint that T must have a parameterless construction. Test by declaring only a constructor with parameter.
 }

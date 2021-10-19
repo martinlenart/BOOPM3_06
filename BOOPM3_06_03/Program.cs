@@ -30,6 +30,6 @@ namespace BOOPM3_06_03
 
     //Excercises:
     //1.    Overload the "==" and "!=" operators to using Equals(). Test and Printout result
-    //2.    In BOOPM3_05_02 make sure IWine forces the user to implement IEquatable<T>
-    //3.    In BOOPM3_05_02 Implement IEquatable in WineStruct and WineClass
+    //2.    Implement IEquatable<T> for PlayingCard. Create two instances and test it
+    //3.    Implement IComparable<T> for PlayingCard. Create two instances and test it
 }
