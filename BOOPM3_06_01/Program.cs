@@ -6,7 +6,6 @@ namespace BOOPM3_06_01
     {
         int position = 0;
         int[] data = new int[100];
-
         public void Push(int value)
         {
             data[position] = value;
@@ -85,6 +84,11 @@ namespace BOOPM3_06_01
             stack1.Push("Hello 350");
             Console.WriteLine(stack1.Pop()); //Hello 350
             Console.WriteLine(stack1.Pop()); //Hello 25
+
+            Console.WriteLine("Tuple demo");
+            var stack2 = new Stack<(int,string)>();
+            stack2.Push((475, "Hello 475"));
+            Console.WriteLine(stack2.Pop());
 
 
             Console.WriteLine();

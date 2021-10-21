@@ -32,4 +32,12 @@ namespace BOOPM3_06_03
     //1.    Overload the "==" and "!=" operators to using Equals(). Test and Printout result
     //2.    Implement IEquatable<T> for PlayingCard. Create two instances and test it
     //3.    Implement IComparable<T> for PlayingCard. Create two instances and test it
+
+    //4.    Implement IEquatable<T> on Chef and make two Chef instances Equal if they have the same name regardless of child type,
+    //      - Overload the == and != operators and create two instance to test it
+
+    //5.    Change the array of Stack<Chef> in BOOP3_06_02 exercise 4 and 5 to List<T> (System.Collections.Generic) and fill the lists with instances
+    //6.    - Set a variable, findChef, of type Chef to an instance with a certain name
+    //      - Loop through the array of List<Chef> and search for first chef that is equals findChef
+    //7.    Refracture exercise 6 into a Method
 }

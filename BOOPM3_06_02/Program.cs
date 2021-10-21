@@ -2,12 +2,25 @@
 
 namespace BOOPM3_06_02
 {
-    public class Stack<T> where T : struct
+    public class Stack<T> where T: struct
     {
-        int position;
+        int position = 0;
         T[] data = new T[100];
-        public void Push(T obj) => data[position++] = obj;
-        public T Pop() => data[--position];
+
+        public void Push(T value)
+        {
+            data[position] = value;
+            position++;
+        }
+        public T Pop()
+        {
+            --position;
+            return data[position];
+        }
+        public T Peek()
+        {
+            return data[position - 1];
+        }
     }
 
     class Program
@@ -39,4 +52,6 @@ namespace BOOPM3_06_02
     //1.    Modify above code to allow only T as a type of class.
     //2.    Create your own instance of class type (For example Chef). Use them to close Stack<T>. Test and printout result showing Pop() result
     //3.    Add a constraint that T must have a parameterless construction. Test by declaring only a constructor with parameter.
+    //4.    Create an array of Stack<Chef> which contains 3 Stacks. Initiate each stack with instances of SwedishChef, ItalianChef, FrenchChef.
+    //5.    Printout the top element of each Stack<Chef> by looping through the array of Stack<Chef>
 }
