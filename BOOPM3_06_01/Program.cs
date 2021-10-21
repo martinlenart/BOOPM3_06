@@ -106,6 +106,9 @@ namespace BOOPM3_06_01
             Console.WriteLine(stack1.Pop());
             Console.WriteLine(stack1.Pop());
 
+            Console.WriteLine();
+            DoDoublePush<(int, string)>(stack2, (4, "Four"), (5, "Five"));
+
                  
             bool[] boolArray = { true, true, true, false, false, false };
             
@@ -113,7 +116,7 @@ namespace BOOPM3_06_01
             
         }
 
-        //Method using a closed Generic type
+        //Methods using a closed Generic type
         static int DoDoublePush(Stack<string> myStack)
         {
             myStack.Push("First push");
@@ -121,7 +124,15 @@ namespace BOOPM3_06_01
 
             return 2;
         }
+        static int DoDoublePush(Stack<(int,string)> myStack)
+        {
+            myStack.Push((1,"First push"));
+            myStack.Push((2,"Second push"));
 
+            return 2;
+        }
+
+        //Methods using open Generic types
         static int DoDoublePush<T>(Stack<T> myStack, T firstElement, T secondElement)
         {
             myStack.Push(firstElement);
