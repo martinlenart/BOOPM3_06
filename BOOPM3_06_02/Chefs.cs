@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BOOPM3_06_02
 {
-    public abstract class Chef
+    public class Chef
     {
         public string Name { get; set; } = "Boring";
         public virtual string Hello => "I'm boring!";
