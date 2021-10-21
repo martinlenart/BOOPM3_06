@@ -15,7 +15,9 @@ namespace BOOPM3_06_02
         public T Pop()
         {
             --position;
-            return data[position];
+            var retObj = data[position];
+            data[position] = null;
+            return retObj;
         }
         public T Peek()
         {

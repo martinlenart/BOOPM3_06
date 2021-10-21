@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BOOPM3_06_03
 {
-    public class Car //: IEquatable<Car>, IComparable<Car>
+    public class Car : IEquatable<Car>, IComparable<Car>
     {
         public string Make { get; set; }
         public string Model { get; set; }
@@ -30,10 +30,13 @@ namespace BOOPM3_06_03
         #region Implementation IComparable<T> interface
         public int CompareTo(Car c1)
         {
-            return this.Year.CompareTo(c1.Year);
+            //if (this.Year < c1.Year ) return -1;
+            //else if (this.Year == c1.Year) return 0;
+            //else return 1;
+
+            return this.Make.CompareTo(c1.Make);
         }
         #endregion
-
     }
     class Program
     {
@@ -48,7 +51,7 @@ namespace BOOPM3_06_03
 
             s = "heLlo";
             Console.WriteLine(s.GetHashCode());
-/*
+
             //Find with IEquatable interface
             Console.WriteLine("\nIEquatable");
             Car c1 = new Car { Make = "BMW", Model = "3 series", Year = "2021" };
@@ -60,10 +63,11 @@ namespace BOOPM3_06_03
             Console.WriteLine(c2.Equals(c4)); //true
             Console.WriteLine(c2.Equals(c3)); //false
 
-            Console.WriteLine(c2 == c4);
-            Console.WriteLine(c2 == c3);
+            Console.WriteLine(c2 == c4); //true
+            Console.WriteLine(c2 == c3); //false
 
-            //Implemeneting List<T>
+
+            //Implementing List<T>
             Console.WriteLine("\nList<Car>");
             List<Car> cars = new List<Car>();
             cars.Add(c1);
@@ -102,17 +106,17 @@ namespace BOOPM3_06_03
             {
                 Console.WriteLine(item);
             }
-*/
+
         }
     }
 
     //Excercises:
-    //1.    Overload the "==" and "!=" operators to using Equals(). Test and Printout result
-    //2.    Implement IEquatable<T> for PlayingCard. Create two instances and test it
-    //3.    Implement IComparable<T> for PlayingCard. Create two instances and test it
-
-    //4.    Implement IEquatable<T> on Chef and make two Chef instances Equal if they have the same name regardless of child type,
+    //1.    Implement IEquatable<T> for PlayingCard. Create two instances and test it
+    //2.    Overload the "==" and "!=" operators to using Equals(). Test and Printout result
+    //3.    Implement IEquatable<T> on Chef and make two Chef instances Equal if they have the same name regardless of child type,
     //      - Overload the == and != operators and create two instance to test it
+
+    //4.    Implement IComparable<T> for PlayingCard. Create two instances and test it
 
     //5.    Change the array of Stack<Chef> in BOOP3_06_02 exercise 4 and 5 to List<T> (System.Collections.Generic) and fill the lists with instances
     //6.    - Set a variable, findChef, of type Chef to an instance with a certain name
