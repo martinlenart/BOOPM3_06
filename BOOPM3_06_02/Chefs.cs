@@ -12,6 +12,12 @@ namespace BOOPM3_06_02
         public virtual string Hello => "I'm boring!";
 
         public virtual string FavoriteDish => "I have none";
+
+        public Chef() { this.Name = "All the same"; }
+        public Chef(string Name)
+        {
+            this.Name = Name;
+        }
     }
     public class FrenchChef : Chef
     {
@@ -30,5 +36,9 @@ namespace BOOPM3_06_02
         public override string Hello => "Hej";
         public override string FavoriteDish => "Meatballs";
         public override string ToString() => $"{Hello} my name is {Name}";
+
+        public SwedishChef() { }
+        public SwedishChef(string Name) : base(Name) { }
+
     }
 }
