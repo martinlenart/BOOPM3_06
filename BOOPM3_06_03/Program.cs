@@ -3,11 +3,12 @@ using System.Collections.Generic;
 
 namespace BOOPM3_06_03
 {
+    public enum CarMake { BMW, Honda, Jaguar, Volvo}
     public class Car : IEquatable<Car>, IComparable<Car>
     {
-        public string Make { get; set; }
+        public CarMake Make { get; set; }
         public string Model { get; set; }
-        public string Year { get; set; }
+        public int Year { get; set; }
 
         public override string ToString()
         {
@@ -30,11 +31,13 @@ namespace BOOPM3_06_03
         #region Implementation IComparable<T> interface
         public int CompareTo(Car c1)
         {
-            //if (this.Year < c1.Year ) return -1;
-            //else if (this.Year == c1.Year) return 0;
-            //else return 1;
-
-            return this.Make.CompareTo(c1.Make);
+            //Sort on Make -> Model -> Year
+            if (Make != c1.Make)
+                return Make.CompareTo(c1.Make);
+            else if (Model != c1.Model)
+                return Model.CompareTo(c1.Model);
+            else
+                return Year.CompareTo(c1.Year);
         }
         #endregion
     }
@@ -54,11 +57,10 @@ namespace BOOPM3_06_03
 
             //Find with IEquatable interface
             Console.WriteLine("\nIEquatable");
-            Car c1 = new Car { Make = "BMW", Model = "3 series", Year = "2021" };
-            Car c2 = new Car { Make = "Volvo", Model = "V70", Year = "2020" };
-            Car c3 = new Car { Make = "Honda", Model = "Civic", Year = "2019" };
-
-            Car c4 = new Car { Make = "Volvo", Model = "V70", Year = "2020" };
+            Car c1 = new Car { Make = CarMake.BMW, Model = "3 series", Year = 2021 };
+            Car c2 = new Car { Make = CarMake.Volvo, Model = "V70", Year = 2020 };
+            Car c3 = new Car { Make = CarMake.Honda, Model = "Civic", Year = 2019 };
+            Car c4 = new Car { Make = CarMake.Volvo, Model = "V70", Year = 2020 };
 
             Console.WriteLine(c2.Equals(c4)); //true
             Console.WriteLine(c2.Equals(c3)); //false
@@ -73,6 +75,7 @@ namespace BOOPM3_06_03
             cars.Add(c1);
             cars.Add(c2);
             cars.Add(c3);
+            cars.Add(new Car { Make = CarMake.Jaguar, Model = "XF", Year = 2009 });
             foreach (var item in cars)
             {
                 Console.WriteLine(item);
@@ -80,7 +83,7 @@ namespace BOOPM3_06_03
 
             Console.WriteLine();
             bool found = cars.Contains(c4);
-            Console.WriteLine(found);
+            Console.WriteLine(found);   //false
 
             //Find the old fashioned way
             Console.WriteLine("\nFind the old fashioned way"); 
