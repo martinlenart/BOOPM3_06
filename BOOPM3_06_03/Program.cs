@@ -16,11 +16,11 @@ namespace BOOPM3_06_03
         }
 
         #region Implementation of IEquatable<T> interface
-        public bool Equals(Car car) => (this.Make, this.Model, this.Year) == (car.Make, car.Model, car.Year);
+        public bool Equals(Car car) => (this.Make, this.Model) == (car.Make, car.Model);
 
         //Needed to implement as part of IEquatable
-        public override int GetHashCode() => (Make, Model, Year).GetHashCode();
         public override bool Equals(object obj) => Equals(obj as Car);
+        public override int GetHashCode() => (Make, Model).GetHashCode();
         #endregion
 
         #region operator overloading
@@ -29,15 +29,15 @@ namespace BOOPM3_06_03
         #endregion
 
         #region Implementation IComparable<T> interface
-        public int CompareTo(Car c1)
+        public int CompareTo(Car other)
         {
             //Sort on Make -> Model -> Year
-            if (Make != c1.Make)
-                return Make.CompareTo(c1.Make);
-            else if (Model != c1.Model)
-                return Model.CompareTo(c1.Model);
+            if (Make != other.Make)
+                return Make.CompareTo(other.Make);          
+            else if (Model != other.Model)
+                return Model.CompareTo(other.Model);
             else
-                return Year.CompareTo(c1.Year);
+                return Year.CompareTo(other.Year);
         }
         #endregion
     }
